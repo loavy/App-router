@@ -2,13 +2,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Pressable } from "react-native";
 
-import Assinatura from "../screens/Assinaturascreen";
-import Configuracoes from "../screens/Configuracaoscreen";
-import Conta from "../screens/Contascreen";
-import Home from "../screens/Homescreen";
-import Favoritos from "../screens/Favoritoscreen";
-import Perfil from "../screens/Perfilscreen";
-import Pesquisa from "../screens/Pesquisascreen";
+import Assinatura from "../screens/Assinatura/Assinaturascreen";
+import Configuracoes from "../screens/Configuracoes/Configuracaoscreen";
+import Conta from "../screens/Conta/Contascreen";
+import Home from "../screens/Home/Homescreen";
+import Favoritos from "../screens/Favoritos/Favoritoscreen";
+import Perfil from "../screens/Perfil/Perfilscreen";
+import Pesquisa from "../screens/Pesquisa/Pesquisascreen";
 import StackNavigator from "./StackNavigator";
 
 const Tab = createBottomTabNavigator();
