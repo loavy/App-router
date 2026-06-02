@@ -1,23 +1,24 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
     paddingBottom: 34,
   },
   title: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 32,
     fontWeight: "900",
   },
   subtitle: {
     marginTop: 6,
     marginBottom: 18,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 15,
     lineHeight: 21,
   },
@@ -28,11 +29,11 @@ const styles = StyleSheet.create({
     height: 54,
     borderRadius: 8,
     paddingHorizontal: 14,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   input: {
     flex: 1,
-    color: "#111827",
+    color: colors.text,
     fontSize: 16,
   },
   clearButton: {
@@ -52,10 +53,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 9,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   categoryText: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 13,
     fontWeight: "800",
   },
@@ -66,12 +67,12 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   sectionTitle: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 20,
     fontWeight: "900",
   },
   resultCount: {
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
     fontWeight: "800",
   },
@@ -80,12 +81,12 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   poster: {
     width: 86,
     minHeight: 126,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   info: {
     flex: 1,
@@ -93,13 +94,13 @@ const styles = StyleSheet.create({
     padding: 13,
   },
   movieTitle: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 17,
     fontWeight: "900",
   },
   movieMeta: {
     marginTop: 6,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
   },
   row: {
@@ -115,15 +116,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 9,
     paddingVertical: 5,
-    backgroundColor: "#FEF3C7",
+    backgroundColor: colors.warningSoft,
   },
   ratingText: {
-    color: "#92400E",
+    color: colors.warningText,
     fontSize: 12,
     fontWeight: "900",
   },
   ageText: {
-    color: "#4B5563",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "800",
   },
@@ -133,19 +134,18 @@ const styles = StyleSheet.create({
     minHeight: 220,
     borderRadius: 8,
     padding: 24,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   emptyTitle: {
     marginTop: 10,
-    color: "#111827",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "900",
   },
   emptyText: {
     marginTop: 6,
-    color: "#6B7280",
+    color: colors.textSoft,
     textAlign: "center",
   },
-});
-
-export default styles;
+  });
+}

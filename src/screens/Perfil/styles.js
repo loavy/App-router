@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     borderRadius: 8,
     padding: 16,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   avatar: {
     alignItems: "center",
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 76,
     borderRadius: 38,
-    backgroundColor: "#111827",
+    backgroundColor: colors.surfaceStrong,
   },
   avatarText: {
     color: "#FFFFFF",
@@ -35,13 +36,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 22,
     fontWeight: "900",
   },
   email: {
     marginTop: 4,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 14,
   },
   memberBadge: {
@@ -53,10 +54,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    backgroundColor: "#FEE2E2",
+    backgroundColor: colors.accentSoft,
   },
   memberText: {
-    color: "#991B1B",
+    color: colors.accentText,
     fontSize: 12,
     fontWeight: "800",
   },
@@ -71,16 +72,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 8,
     padding: 12,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   statValue: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 24,
     fontWeight: "900",
   },
   statLabel: {
     marginTop: 4,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "800",
   },
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     marginBottom: 12,
-    color: "#111827",
+    color: colors.text,
     fontSize: 20,
     fontWeight: "900",
   },
@@ -105,10 +106,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 9,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   preferenceText: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 14,
     fontWeight: "800",
   },
@@ -116,32 +117,46 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   poster: {
     width: 108,
     minHeight: 158,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   favoriteInfo: {
     flex: 1,
     justifyContent: "center",
     padding: 14,
   },
+  emptyFavorite: {
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 130,
+    borderRadius: 8,
+    padding: 18,
+    backgroundColor: colors.surface,
+  },
+  emptyFavoriteText: {
+    marginTop: 8,
+    color: colors.textSoft,
+    fontSize: 14,
+    fontWeight: "800",
+  },
   movieTitle: {
     marginBottom: 6,
-    color: "#111827",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "900",
   },
   movieMeta: {
     marginBottom: 10,
-    color: "#EF4444",
+    color: colors.accent,
     fontSize: 13,
     fontWeight: "800",
   },
   movieDescription: {
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
     lineHeight: 19,
   },
@@ -154,18 +169,17 @@ const styles = StyleSheet.create({
     gap: 12,
     borderRadius: 8,
     padding: 14,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   achievementTitle: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 15,
     fontWeight: "900",
   },
   achievementText: {
     marginTop: 3,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
   },
-});
-
-export default styles;
+  });
+}

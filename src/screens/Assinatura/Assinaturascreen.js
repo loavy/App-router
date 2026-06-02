@@ -1,10 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
 
+import { useAppContext } from "../../context/AppContext";
 import { planos } from "../../data/catalogo";
-import styles from "./styles";
+import createStyles from "./styles";
 
 export default function Assinatura() {
+  const { colors } = useAppContext();
+  const styles = createStyles(colors);
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
@@ -52,7 +56,7 @@ export default function Assinatura() {
                   <Ionicons
                     name="checkmark-circle"
                     size={18}
-                    color={recomendado ? "#FFFFFF" : "#EF4444"}
+                    color={recomendado ? "#FFFFFF" : colors.accent}
                   />
                   <Text style={[styles.benefitText, recomendado && styles.featuredMuted]}>
                     {beneficio}

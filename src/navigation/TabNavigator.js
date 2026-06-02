@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Pressable } from "react-native";
 
+import { useAppContext } from "../context/AppContext";
 import Assinatura from "../screens/Assinatura/Assinaturascreen";
 import Configuracoes from "../screens/Configuracoes/Configuracaoscreen";
 import Conta from "../screens/Conta/Contascreen";
@@ -26,21 +27,38 @@ const tabIcons = {
 };
 
 export default function TabNavigator() {
+  const { colors } = useAppContext();
+
   return (
     <Tab.Navigator
       screenOptions={({ navigation, route }) => ({
         headerShown: true,
         headerTitle: route.name,
+        headerStyle: {
+          backgroundColor: colors.surface,
+        },
+        headerTintColor: colors.text,
+        headerTitleStyle: {
+          color: colors.text,
+          fontWeight: "900",
+        },
         headerLeft: () => (
           <Pressable
             onPress={() => navigation.getParent()?.openDrawer()}
             style={{ marginLeft: 16 }}
           >
-            <Ionicons name="menu-outline" size={28} color="#1F2937" />
+            <Ionicons name="menu-outline" size={28} color={colors.text} />
           </Pressable>
         ),
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.navInactive,
+        tabBarStyle: {
+          backgroundColor: colors.surface,
+          borderTopColor: colors.border,
+        },
+        tabBarLabelStyle: {
+          fontWeight: "800",
+        },
         tabBarIcon: ({ color, size, focused }) => {
           const iconName = focused
             ? tabIcons[route.name]?.replace("-outline", "")

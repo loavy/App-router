@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     borderRadius: 8,
     padding: 16,
-    backgroundColor: "#111827",
+    backgroundColor: colors.surfaceStrong,
   },
   title: {
     color: "#FFFFFF",
@@ -37,16 +38,16 @@ const styles = StyleSheet.create({
     width: 54,
     height: 54,
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   card: {
     flexDirection: "row",
     marginBottom: 14,
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
     elevation: 2,
-    shadowColor: "#000000",
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
     shadowRadius: 8,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   poster: {
     width: 102,
     minHeight: 160,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   info: {
     flex: 1,
@@ -68,19 +69,19 @@ const styles = StyleSheet.create({
   },
   movieTitle: {
     flex: 1,
-    color: "#111827",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "900",
   },
   movieMeta: {
     marginTop: 6,
-    color: "#EF4444",
+    color: colors.accent,
     fontSize: 13,
     fontWeight: "800",
   },
   description: {
     marginTop: 10,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -96,13 +97,42 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 9,
     paddingVertical: 5,
-    backgroundColor: "#F3F4F6",
+    backgroundColor: colors.surfaceAlt,
   },
   badgeText: {
-    color: "#374151",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "800",
   },
-});
-
-export default styles;
+  removeButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 34,
+    height: 34,
+    borderRadius: 8,
+    backgroundColor: colors.accentSoft,
+  },
+  emptyState: {
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 260,
+    borderRadius: 8,
+    padding: 24,
+    backgroundColor: colors.surface,
+  },
+  emptyTitle: {
+    marginTop: 12,
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: "900",
+  },
+  emptyText: {
+    maxWidth: 250,
+    marginTop: 6,
+    color: colors.textSoft,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: "center",
+  },
+  });
+}

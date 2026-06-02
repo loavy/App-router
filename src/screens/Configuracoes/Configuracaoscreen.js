@@ -1,14 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
 import { ScrollView, Switch, Text, View } from "react-native";
 
+import { useAppContext } from "../../context/AppContext";
 import styles from "./styles";
 
 export default function Configuracoes() {
-  const [modoEscuro, setModoEscuro] = useState(false);
-  const iconColor = modoEscuro ? "#FDE68A" : "#EF4444";
-  const primaryText = modoEscuro ? "#FFFFFF" : "#111827";
-  const mutedText = modoEscuro ? "#CBD5E1" : "#6B7280";
+  const { colors, modoEscuro, setModoEscuro } = useAppContext();
+  const iconColor = modoEscuro ? colors.warning : colors.accent;
+  const primaryText = colors.text;
+  const mutedText = colors.textSoft;
 
   return (
     <ScrollView
@@ -76,7 +76,7 @@ export default function Configuracoes() {
       <View style={[styles.noteCard, modoEscuro && styles.noteCardDark]}>
         <Ionicons name="contrast-outline" size={22} color={iconColor} />
         <Text style={[styles.noteText, modoEscuro && styles.noteTextDark]}>
-          O ajuste muda a aparencia desta tela para demonstrar o tema escolhido.
+          O ajuste muda a aparencia da app inteira.
         </Text>
       </View>
     </ScrollView>

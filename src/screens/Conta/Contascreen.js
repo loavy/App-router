@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
 
-import styles from "./styles";
+import { useAppContext } from "../../context/AppContext";
+import createStyles from "./styles";
 
 const linhasConta = [
   {
@@ -22,6 +23,9 @@ const linhasConta = [
 ];
 
 export default function Conta() {
+  const { colors } = useAppContext();
+  const styles = createStyles(colors);
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.headerCard}>
@@ -39,7 +43,7 @@ export default function Conta() {
         {linhasConta.map((item) => (
           <View key={item.titulo} style={styles.infoRow}>
             <View style={styles.rowIcon}>
-              <Ionicons name={item.icone} size={22} color="#EF4444" />
+              <Ionicons name={item.icone} size={22} color={colors.accent} />
             </View>
             <View style={styles.rowText}>
               <Text style={styles.rowTitle}>{item.titulo}</Text>
@@ -56,7 +60,7 @@ export default function Conta() {
           <Text style={styles.planText}>2 telas, Full HD e downloads offline.</Text>
         </View>
         <View style={styles.planBadge}>
-          <Ionicons name="card-outline" size={24} color="#EF4444" />
+          <Ionicons name="card-outline" size={24} color={colors.accent} />
         </View>
       </View>
 
@@ -64,7 +68,7 @@ export default function Conta() {
         <Text style={styles.sectionTitle}>Pagamento</Text>
         <View style={styles.paymentCard}>
           <View style={styles.paymentIcon}>
-            <Ionicons name="wallet-outline" size={24} color="#111827" />
+            <Ionicons name="wallet-outline" size={24} color={colors.text} />
           </View>
           <View style={styles.rowText}>
             <Text style={styles.rowTitle}>Cartao final 0426</Text>

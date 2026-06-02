@@ -8,10 +8,13 @@ import {
   View,
 } from "react-native";
 
-import { categorias, continuarAssistindo, filmes, favoritos } from "../../data/catalogo";
-import styles from "./styles";
+import { useAppContext } from "../../context/AppContext";
+import { categorias, continuarAssistindo, filmes } from "../../data/catalogo";
+import createStyles from "./styles";
 
 export default function Home({ navigation }) {
+  const { colors, favoritos, isFavorite, toggleFavorite } = useAppContext();
+  const styles = createStyles(colors);
   const filmeDestaque = filmes[0];
 
   const abrirDetalhes = (filme) => {
@@ -29,7 +32,7 @@ export default function Home({ navigation }) {
           <Text style={styles.title}>Home</Text>
         </View>
         <View style={styles.headerIcon}>
-          <Ionicons name="notifications-outline" size={22} color="#111827" />
+          <Ionicons name="notifications-outline" size={22} color={colors.text} />
         </View>
       </View>
 
@@ -59,17 +62,17 @@ export default function Home({ navigation }) {
 
       <View style={styles.statsGrid}>
         <View style={styles.statCard}>
-          <Ionicons name="film-outline" size={22} color="#EF4444" />
+          <Ionicons name="film-outline" size={22} color={colors.accent} />
           <Text style={styles.statValue}>{filmes.length}</Text>
           <Text style={styles.statLabel}>Filmes</Text>
         </View>
         <View style={styles.statCard}>
-          <Ionicons name="heart-outline" size={22} color="#EF4444" />
+          <Ionicons name="heart-outline" size={22} color={colors.accent} />
           <Text style={styles.statValue}>{favoritos.length}</Text>
           <Text style={styles.statLabel}>Favoritos</Text>
         </View>
         <View style={styles.statCard}>
-          <Ionicons name="play-circle-outline" size={22} color="#EF4444" />
+          <Ionicons name="play-circle-outline" size={22} color={colors.accent} />
           <Text style={styles.statValue}>{continuarAssistindo.length}</Text>
           <Text style={styles.statLabel}>Em pausa</Text>
         </View>
@@ -85,7 +88,7 @@ export default function Home({ navigation }) {
       >
         {categorias.map((categoria) => (
           <View key={categoria.nome} style={styles.categoryCard}>
-            <Ionicons name={categoria.icone} size={24} color="#EF4444" />
+            <Ionicons name={categoria.icone} size={24} color={colors.accent} />
             <Text style={styles.categoryName}>{categoria.nome}</Text>
             <Text style={styles.categoryTotal}>{categoria.total} titulos</Text>
           </View>
@@ -126,7 +129,22 @@ export default function Home({ navigation }) {
         >
           <Image source={{ uri: filme.imagem }} style={styles.poster} />
           <View style={styles.info}>
-            <Text style={styles.movieTitle}>{filme.titulo}</Text>
+            <View style={styles.movieHeader}>
+              <Text style={styles.movieTitle}>{filme.titulo}</Text>
+              <Pressable
+                style={styles.favoriteButton}
+                onPress={(event) => {
+                  event.stopPropagation?.();
+                  toggleFavorite(filme.id);
+                }}
+              >
+                <Ionicons
+                  name={isFavorite(filme.id) ? "heart" : "heart-outline"}
+                  size={20}
+                  color={colors.accent}
+                />
+              </Pressable>
+            </View>
             <Text style={styles.movieMeta}>
               {filme.genero} - {filme.ano} - {filme.classificacao}
             </Text>

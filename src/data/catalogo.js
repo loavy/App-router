@@ -80,8 +80,6 @@ export const continuarAssistindo = [
   { ...filmes[5], progresso: "54%" },
 ];
 
-export const favoritos = [filmes[0], filmes[2], filmes[4]];
-
 export const planos = [
   {
     nome: "Basico",

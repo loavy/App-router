@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   title: {
-    color: "#17202A",
+    color: colors.text,
     fontSize: 32,
     fontWeight: "800",
   },
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   hero: {
     height: 260,
@@ -100,16 +101,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 8,
     padding: 12,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   statValue: {
     marginTop: 8,
-    color: "#111827",
+    color: colors.text,
     fontSize: 22,
     fontWeight: "900",
   },
   statLabel: {
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "700",
   },
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   sectionTitle: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 20,
     fontWeight: "900",
   },
@@ -132,15 +133,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderRadius: 8,
     padding: 14,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   categoryName: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 15,
     fontWeight: "900",
   },
   categoryTotal: {
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "700",
   },
@@ -155,12 +156,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 178,
     borderRadius: 8,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   watchTitle: {
     minHeight: 38,
     marginTop: 8,
-    color: "#111827",
+    color: colors.text,
     fontSize: 13,
     fontWeight: "800",
   },
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
     height: 5,
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   progressFill: {
     height: "100%",
@@ -180,9 +181,9 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
     elevation: 2,
-    shadowColor: "#000000",
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
     shadowRadius: 8,
@@ -190,22 +191,37 @@ const styles = StyleSheet.create({
   poster: {
     width: 96,
     minHeight: 142,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   info: {
     flex: 1,
     justifyContent: "center",
     padding: 14,
   },
+  movieHeader: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: 8,
+  },
   movieTitle: {
+    flex: 1,
     marginBottom: 6,
-    color: "#111827",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "800",
   },
+  favoriteButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 34,
+    height: 34,
+    borderRadius: 8,
+    backgroundColor: colors.accentSoft,
+  },
   movieMeta: {
     marginBottom: 12,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 14,
   },
   row: {
@@ -217,15 +233,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: "#FEF3C7",
-    color: "#92400E",
+    backgroundColor: colors.warningSoft,
+    color: colors.warningText,
     fontSize: 13,
     fontWeight: "700",
   },
   duration: {
-    color: "#4B5563",
+    color: colors.textSoft,
     fontSize: 13,
   },
-});
-
-export default styles;
+  });
+}

@@ -9,10 +9,13 @@ import {
   View,
 } from "react-native";
 
+import { useAppContext } from "../../context/AppContext";
 import { categorias, filmes } from "../../data/catalogo";
-import styles from "./styles";
+import createStyles from "./styles";
 
 export default function Pesquisa({ navigation }) {
+  const { colors } = useAppContext();
+  const styles = createStyles(colors);
   const [busca, setBusca] = useState("");
 
   const resultados = useMemo(() => {
@@ -41,18 +44,18 @@ export default function Pesquisa({ navigation }) {
       <Text style={styles.subtitle}>Encontre filmes por nome, genero ou ano.</Text>
 
       <View style={styles.searchBox}>
-        <Ionicons name="search-outline" size={22} color="#6B7280" />
+        <Ionicons name="search-outline" size={22} color={colors.textSoft} />
         <TextInput
           value={busca}
           onChangeText={setBusca}
           placeholder="Busque por filme ou genero"
-          placeholderTextColor="#9CA3AF"
+          placeholderTextColor={colors.textMuted}
           autoCorrect={false}
           style={styles.input}
         />
         {busca.length > 0 && (
           <Pressable onPress={() => setBusca("")} style={styles.clearButton}>
-            <Ionicons name="close-circle" size={22} color="#9CA3AF" />
+            <Ionicons name="close-circle" size={22} color={colors.textMuted} />
           </Pressable>
         )}
       </View>
@@ -77,7 +80,7 @@ export default function Pesquisa({ navigation }) {
 
       {resultados.length === 0 ? (
         <View style={styles.emptyState}>
-          <Ionicons name="film-outline" size={36} color="#9CA3AF" />
+          <Ionicons name="film-outline" size={36} color={colors.textMuted} />
           <Text style={styles.emptyTitle}>Nada encontrado</Text>
           <Text style={styles.emptyText}>Tente buscar outro titulo ou genero.</Text>
         </View>

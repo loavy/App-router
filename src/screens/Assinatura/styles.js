@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -13,13 +14,13 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   title: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 32,
     fontWeight: "900",
   },
   subtitle: {
     marginTop: 6,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 15,
     lineHeight: 21,
   },
@@ -27,10 +28,10 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     borderRadius: 8,
     padding: 18,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   planCardFeatured: {
-    backgroundColor: "#111827",
+    backgroundColor: colors.surfaceStrong,
   },
   planHeader: {
     flexDirection: "row",
@@ -39,13 +40,13 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   planName: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 22,
     fontWeight: "900",
   },
   planTagline: {
     marginTop: 4,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
     fontWeight: "700",
   },
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    backgroundColor: "#EF4444",
+    backgroundColor: colors.accent,
   },
   recommendedText: {
     color: "#FFFFFF",
@@ -69,14 +70,14 @@ const styles = StyleSheet.create({
     marginTop: 18,
   },
   price: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 34,
     fontWeight: "900",
   },
   period: {
     marginBottom: 6,
     marginLeft: 4,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 14,
     fontWeight: "800",
   },
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   benefitText: {
-    color: "#374151",
+    color: colors.textSoft,
     fontSize: 14,
     fontWeight: "700",
   },
@@ -100,6 +101,5 @@ const styles = StyleSheet.create({
   featuredMuted: {
     color: "#D1D5DB",
   },
-});
-
-export default styles;
+  });
+}

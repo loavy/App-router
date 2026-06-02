@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 22,
     borderRadius: 8,
     padding: 16,
-    backgroundColor: "#111827",
+    backgroundColor: colors.surfaceStrong,
   },
   avatar: {
     alignItems: "center",
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     marginBottom: 12,
-    color: "#111827",
+    color: colors.text,
     fontSize: 20,
     fontWeight: "900",
   },
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 8,
     padding: 14,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   rowIcon: {
     alignItems: "center",
@@ -63,19 +64,19 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 8,
-    backgroundColor: "#FEE2E2",
+    backgroundColor: colors.accentSoft,
   },
   rowText: {
     flex: 1,
   },
   rowTitle: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 15,
     fontWeight: "900",
   },
   rowValue: {
     marginTop: 4,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -87,23 +88,23 @@ const styles = StyleSheet.create({
     marginBottom: 22,
     borderRadius: 8,
     padding: 16,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   planLabel: {
-    color: "#EF4444",
+    color: colors.accent,
     fontSize: 12,
     fontWeight: "900",
     textTransform: "uppercase",
   },
   planTitle: {
     marginTop: 6,
-    color: "#111827",
+    color: colors.text,
     fontSize: 22,
     fontWeight: "900",
   },
   planText: {
     marginTop: 6,
-    color: "#6B7280",
+    color: colors.textSoft,
     fontSize: 14,
     lineHeight: 20,
   },
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 8,
-    backgroundColor: "#FEE2E2",
+    backgroundColor: colors.accentSoft,
   },
   paymentCard: {
     flexDirection: "row",
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     gap: 12,
     borderRadius: 8,
     padding: 14,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   paymentIcon: {
     alignItems: "center",
@@ -129,8 +130,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 8,
-    backgroundColor: "#F3F4F6",
+    backgroundColor: colors.surfaceAlt,
   },
-});
-
-export default styles;
+  });
+}

@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export default function createStyles(colors) {
+  return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8FAFC",
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -16,18 +17,18 @@ const styles = StyleSheet.create({
     height: 44,
     marginBottom: 16,
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   heroCard: {
     flexDirection: "row",
     overflow: "hidden",
     borderRadius: 8,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.surface,
   },
   poster: {
     width: 130,
     minHeight: 198,
-    backgroundColor: "#E5E7EB",
+    backgroundColor: colors.border,
   },
   info: {
     flex: 1,
@@ -35,13 +36,13 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    color: "#111827",
+    color: colors.text,
     fontSize: 24,
     fontWeight: "900",
   },
   meta: {
     marginTop: 8,
-    color: "#EF4444",
+    color: colors.accent,
     fontSize: 13,
     fontWeight: "800",
     lineHeight: 18,
@@ -58,10 +59,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 9,
     paddingVertical: 5,
-    backgroundColor: "#F3F4F6",
+    backgroundColor: colors.surfaceAlt,
   },
   badgeText: {
-    color: "#374151",
+    color: colors.textSoft,
     fontSize: 12,
     fontWeight: "900",
   },
@@ -70,12 +71,12 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     marginBottom: 10,
-    color: "#111827",
+    color: colors.text,
     fontSize: 20,
     fontWeight: "900",
   },
   description: {
-    color: "#4B5563",
+    color: colors.textSoft,
     fontSize: 15,
     lineHeight: 22,
   },
@@ -105,8 +106,7 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 8,
-    backgroundColor: "#FEE2E2",
+    backgroundColor: colors.accentSoft,
   },
-});
-
-export default styles;
+  });
+}

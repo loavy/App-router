@@ -1,10 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image, ScrollView, Text, View } from "react-native";
 
-import { favoritos, filmes } from "../../data/catalogo";
-import styles from "./styles";
+import { useAppContext } from "../../context/AppContext";
+import createStyles from "./styles";
 
 export default function Perfil() {
+  const { colors, favoritos } = useAppContext();
+  const styles = createStyles(colors);
+  const ultimoFavorito = favoritos[favoritos.length - 1];
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.profileCard}>
@@ -50,14 +54,21 @@ export default function Perfil() {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Ultimo favorito</Text>
-        <View style={styles.favoriteCard}>
-          <Image source={{ uri: filmes[0].imagem }} style={styles.poster} />
-          <View style={styles.favoriteInfo}>
-            <Text style={styles.movieTitle}>{filmes[0].titulo}</Text>
-            <Text style={styles.movieMeta}>{filmes[0].genero}</Text>
-            <Text style={styles.movieDescription}>{filmes[0].destaque}</Text>
+        {ultimoFavorito ? (
+          <View style={styles.favoriteCard}>
+            <Image source={{ uri: ultimoFavorito.imagem }} style={styles.poster} />
+            <View style={styles.favoriteInfo}>
+              <Text style={styles.movieTitle}>{ultimoFavorito.titulo}</Text>
+              <Text style={styles.movieMeta}>{ultimoFavorito.genero}</Text>
+              <Text style={styles.movieDescription}>{ultimoFavorito.destaque}</Text>
+            </View>
           </View>
-        </View>
+        ) : (
+          <View style={styles.emptyFavorite}>
+            <Ionicons name="heart-outline" size={28} color={colors.textMuted} />
+            <Text style={styles.emptyFavoriteText}>Nenhum favorito salvo ainda.</Text>
+          </View>
+        )}
       </View>
 
       <View style={styles.section}>
